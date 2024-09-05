@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="HotChocolate.AspNetCore" Version="13.9.12" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Weather.Ap.Geo\Weather.Ap.Geo.csproj" />
+    <ProjectReference Include="..\Weather.Api.Service\Weather.Api.Service.csproj" />
+  </ItemGroup>
+
+</Project>

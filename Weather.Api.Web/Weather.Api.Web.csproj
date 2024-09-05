@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <UserSecretsId>a4c4f740-e230-448e-885d-5c37e4bc4d5f</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.9.12" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Weather.Ap.Geo\Weather.Ap.Geo.csproj" />
+    <ProjectReference Include="..\Weather.Api.Graphql\Weather.Api.Graphql.csproj" />
+    <ProjectReference Include="..\Weather.Api.Service\Weather.Api.Service.csproj" />
+  </ItemGroup>
+
+</Project>
