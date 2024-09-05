@@ -1,14 +1,18 @@
 #See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER app
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
+EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Weather.Api.Web/Weather.Api.Web.csproj", "Weather.Api.Web/"]
+COPY ["Weather.Ap.Geo/Weather.Ap.Geo.csproj", "Weather.Ap.Geo/"]
+COPY ["Weather.Api.Common/Weather.Api.Common.csproj", "Weather.Api.Common/"]
+COPY ["Weather.Api.Data/Weather.Api.Data.csproj", "Weather.Api.Data/"]
 COPY ["Weather.Api.Graphql/Weather.Api.Graphql.csproj", "Weather.Api.Graphql/"]
 COPY ["Weather.Api.Service/Weather.Api.Service.csproj", "Weather.Api.Service/"]
 RUN dotnet restore "./Weather.Api.Web/Weather.Api.Web.csproj"
