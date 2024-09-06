@@ -18,7 +18,7 @@ namespace Weather.Api.Graphql.Graph
         {
             return await _graphqlService.GetAddressAsync(address);
         }
-        public async Task<Points> GetPoints(string coordinates)
+        public async Task<Points> GetPoints(Coordinates coordinates)
         {
             return await _graphqlService.GetPointsAsync(coordinates);
         }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Weather.Api.Common.Base;
+using Weather.Api.Data.Models.Geo;
 using Weather.Api.Data.Models.Request;
 using Weather.Api.Data.Models.Response;
 
@@ -30,16 +31,13 @@ namespace Weather.Api.Service.Services
             httpClient.DefaultRequestHeaders.Add("User-Agent", config["WeatherOptions:UserAgent"]);
         }
 
-        public async Task<WeatherResponse> GetAsync(string coordinates)
+        public async Task<WeatherResponse> GetAsync(Coordinates coordinates)
         {
-            var isValid = _validationService.IsValidCoordinates(coordinates);
+            var isValid = _validationService.IsValidICoordinates(coordinates);
             if (!isValid)
                 throw new InvalidDataException("Invalid Coordinates!");
 
-            var longitude = _validationService.Longitude;
-            var latitude = _validationService.Latitude;
-
-            var requestUrl = $"points/{latitude},{longitude}";
+            var requestUrl = $"points/{_validationService.Latitude},{_validationService.Longitude}";
             var weatherData = await GetDataAsync<Points>(requestUrl);
 
             if (weatherData.status is not (200 or 0))

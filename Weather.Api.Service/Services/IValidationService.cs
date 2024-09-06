@@ -1,8 +1,10 @@
-﻿namespace Weather.Api.Service.Services;
+﻿using Weather.Api.Data.Models.Geo;
+
+namespace Weather.Api.Service.Services;
 
 public interface IValidationService
 {
-    double Longitude { get; }
-    double Latitude { get; }
-    bool IsValidCoordinates(string coordinates);
+    float Longitude { get; }
+    float Latitude { get; }
+    bool IsValidICoordinates(Coordinates coordinates);
 }

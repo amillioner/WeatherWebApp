@@ -31,9 +31,9 @@ namespace Weather.Api.Graphql.Services
         {
             return await _geoService.ProcessAsync(address);
         }
-        public async Task<Points> GetPointsAsync(string coordinates)
+        public async Task<Points> GetPointsAsync(Coordinates coordinates)
         {
-            var isValid = _validationService.IsValidCoordinates(coordinates);
+            var isValid = _validationService.IsValidICoordinates(coordinates);
             if (!isValid)
                 throw new InvalidDataException("Invalid Coordinates ");
 

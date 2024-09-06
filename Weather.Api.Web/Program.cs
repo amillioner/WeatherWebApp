@@ -12,7 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.RegisterServices();
 builder.Services.RegisterGraphServices();
 builder.Services.RegisterGeoServices();
-//builder.Services.RegisterConfigs();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
