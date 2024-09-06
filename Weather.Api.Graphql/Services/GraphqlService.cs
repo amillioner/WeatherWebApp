@@ -37,10 +37,7 @@ namespace Weather.Api.Graphql.Services
             if (!isValid)
                 throw new InvalidDataException("Invalid Coordinates ");
 
-            var longitude = _validationService.Longitude;
-            var latitude = _validationService.Latitude;
-
-            var requestUrl = $"points/{latitude},{longitude}";
+            var requestUrl = $"points/{_validationService.Latitude},{_validationService.Longitude}";
             var weatherData = await _weatherService.GetDataAsync<Points>(requestUrl);
 
             return weatherData;

@@ -97,7 +97,6 @@ namespace Weather.Api.Service.Services
                 _logger.LogError($"Unexpected error: {ex.Message}");
                 throw;
             }
-
         }
 
         private static string GetCharacterization(double fahrenheit)
